@@ -1,0 +1,183 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-10-27T22:06:37.836Z",
+    "end": "2021-10-27T22:06:45.598Z",
+    "duration": 7762,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "244dcc9f-d0c9-42ee-b91f-d1fbc8f397f3",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [
+        {
+          "title": "\"after each\" hook: ret in \"{root}\"",
+          "fullTitle": "\"after each\" hook: ret in \"{root}\"",
+          "timedOut": false,
+          "duration": 1,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "if (hooks.afterEach) { \n  return hooks.afterEach();\n}",
+          "err": {},
+          "uuid": "7ae8fb97-404d-4e22-b8ad-ca7bbd218521",
+          "parentUUID": "244dcc9f-d0c9-42ee-b91f-d1fbc8f397f3",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f890d9c9-7200-46d7-8674-5bd01fa6cb05",
+          "title": "First",
+          "fullFile": "C:\\Users\\Vova\\test4\\specs\\first.spec.js",
+          "file": "\\specs\\first.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Enter Login",
+              "fullTitle": "First Enter Login",
+              "timedOut": false,
+              "duration": 3195,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const login = \"VolodymyrTS\"\n \nconst searchInpLoginSelector = '#all > div > form > div:nth-child(1) > input'\nconst searchInpLogin = $(searchInpLoginSelector)\n    \nawait browser.get('https://www.pecodesoftware.com/qa-portal/registerlogin/registerlogin.php')\nawait browser.wait(EC.visibilityOf(searchInpLogin), 25000, 'Search input Login not found')\nawait searchInpLogin.sendKeys(login)\nawait browser.sleep(2 * 1000)",
+              "err": {},
+              "uuid": "f9036a67-fc4e-47b0-afe5-f76c43c477eb",
+              "parentUUID": "f890d9c9-7200-46d7-8674-5bd01fa6cb05",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Enter Password",
+              "fullTitle": "First Enter Password",
+              "timedOut": false,
+              "duration": 2187,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const pswrd = \"123456\"\n\nconst searchInpPSWRDSelector = '#all > div > form > div:nth-child(2) > input'\nconst searchInpPSWRD = $(searchInpPSWRDSelector)\n\nawait browser.wait(EC.visibilityOf(searchInpPSWRD), 25000, 'Search input Password not found')\n\nawait searchInpPSWRD.sendKeys(pswrd)\n       \nawait browser.sleep(2 * 1000)",
+              "err": {},
+              "uuid": "d173860a-044f-4881-8d70-f8bf0a09542c",
+              "parentUUID": "f890d9c9-7200-46d7-8674-5bd01fa6cb05",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Click login button",
+              "fullTitle": "First Click login button",
+              "timedOut": false,
+              "duration": 2247,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const searchButtonSelector = '#all > div > form > div:nth-child(3) > input'\n    const searchButton = $(searchButtonSelector)\n    await searchButton.click()\n    \n    await browser.sleep(2 * 1000)",
+              "err": {},
+              "uuid": "cb1a12a1-b714-4158-b2fe-11d95039f92b",
+              "parentUUID": "f890d9c9-7200-46d7-8674-5bd01fa6cb05",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Is login corect?",
+              "fullTitle": "First Is login corect?",
+              "timedOut": false,
+              "duration": 104,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const assert = require('assert');\nconst messageErr = 'No account found with that username'\nconst ErrMessageSelector =  '#all > div > form > div.form-group.has-error > span'\nconst ErrMessage = $(ErrMessageSelector)\n\nawait browser.wait(EC.visibilityOf(ErrMessage), 500, 'not error message')\n\nconst ErrMessageValue = await ErrMessage.getText()\nassert.fail(messageErr == ErrMessageValue, 'Fail because of unsuccessful login');\nawait browser.sleep(20 * 1000)",
+              "err": {
+                "message": "AssertionError: false != 'Fail because of unsuccessful login'",
+                "estack": "AssertionError [ERR_ASSERTION] [ERR_ASSERTION]: false != 'Fail because of unsuccessful login'\n    at Context.<anonymous> (specs\\first.spec.js:51:16)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)",
+                "diff": null
+              },
+              "uuid": "8d99625c-9c3b-4250-9d13-3c03472f9716",
+              "parentUUID": "f890d9c9-7200-46d7-8674-5bd01fa6cb05",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f9036a67-fc4e-47b0-afe5-f76c43c477eb",
+            "d173860a-044f-4881-8d70-f8bf0a09542c",
+            "cb1a12a1-b714-4158-b2fe-11d95039f92b"
+          ],
+          "failures": [
+            "8d99625c-9c3b-4250-9d13-3c03472f9716"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7733,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 30000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.1.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false
+      },
+      "version": "5.2.0"
+    }
+  }
+}
